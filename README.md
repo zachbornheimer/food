@@ -84,17 +84,33 @@ a pull request!
 
 ## EXAMPLES:
 
-1) Compare 50lb pound of oatmeal that's 74.99 to a 25kg of oatmeal that 43.99
+### 1) Compare 50lb pound of oatmeal that's 74.99 to a 25kg of oatmeal that 43.99
 
 `python food.py --check --food=oatmeal --serving-size=80 --serving-measurement=grams --quantity=50 --price=74.99 --unit=pounds`
 
 `python food.py --check --food=oatmeal --serving-size=80 --serving-measurement=grams --quantity=25 --price=43.99 --unit=kilograms`
 
-2) You saved $3 in yogurt this cycle (was 12.99, now 9.99).  You want to update
+You could also use the short parameters:
+
+`python food.py -c -f=oatmeal --ss=80 --sm=grams -q=50 -p=74.99 -u=pounds`
+
+`python food.py -c -f=oatmeal --ss=80 --smt=grams -q=25 -p=43.99 -u=kilograms`
+
+
+### 2) You saved $3 in yogurt this cycle (was 12.99, now 9.99).  You want to update
 that price.  You buy 16 pre-packaged cups at once.
 
 `python food.py --store --food=yogurt --price=9.99 --quantity=16 --unit=servings`
 
-3) You want to see a report on your food-plan
+You could also use the short parameters:
+
+`python food.py -s -f=yogurt -p=9.99 -q=16 -u=servings`
+
+
+### 3) You want to see a report on your food-plan
 
 `python food.py --overview`
+
+You could also use the short parameters:
+
+`python food.py -o` or just `python food.py` as `--overview` is assumed by default.
