@@ -35,6 +35,7 @@ def cost_per_meal(quantity, unit, price, meal_size, serving_measurement):
        was purchased for price usd.'''
     pounds_to_grams = 453.592
     kg_to_pounds = 2.20462
+    ounces_to_pounds = 0.0625
 
     pounds_conversion = quantity
 
@@ -42,11 +43,12 @@ def cost_per_meal(quantity, unit, price, meal_size, serving_measurement):
     quantity_in_serving_type = quantity;
     if unit == "kilograms":
         pounds_conversion = float(kg_to_pounds) * float(quantity)
-    elif unit == "pounds":
-        pounds_conversion = quantity
+    elif unit == "ounces":
+        pounds_conversion = float(ounces_to_pounds) * float(quantity)
 
     if serving_measurement == "grams":
-        if unit in ("kilograms", "pounds"):
+        # Always need pounds below, otherwise, match what's in the if statement above
+        if unit in ("pounds", "kilograms", "ounces"):
             quantity_in_serving_type = float(pounds_to_grams) * float(pounds_conversion)
 
     return (float(meal_size) / float(quantity_in_serving_type)) * float(price)
@@ -193,6 +195,8 @@ def normalize_unit(unit):
        return "kilograms"
     if unit in ("grams", "g"):
        return "grams"
+    if unit in ("ounces", "oz"):
+       return "ounces"
 
 
 
