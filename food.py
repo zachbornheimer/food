@@ -49,7 +49,6 @@ def cost_per_meal(quantity, unit, price, meal_size, serving_measurement):
         if unit in ("kilograms", "pounds"):
             quantity_in_serving_type = float(pounds_to_grams) * float(pounds_conversion)
 
-
     return (float(meal_size) / float(quantity_in_serving_type)) * float(price)
 
 
@@ -139,19 +138,15 @@ def main(argv):
             price = re.sub(r'\$', r'', price)
         elif opt in ('-u', "--unit"):
             unit = re.sub(r'^=*', r'', arg)
-            if unit in ("pounds", "lbs"):
-                unit = "pounds"
-            if unit in ("kilograms", "kg"):
-                unit = "kilograms"
-            if unit in ("grams", "g"):
-                unit = "grams"
+            unit = normalize_unit(unit)
         elif opt in ('-f', "--food"):
             food = re.sub(r'^=*', r'', arg)
         elif opt in ('--ss', "--serving-size"):
             serving_size = re.sub(r'^=*', r'', arg)
         elif opt in ('--sm', "--serving-measurement"):
             serving_measurement = re.sub(r'^=*', r'', arg)
-
+            serving_measurement = normalize_unit(serving_measurement)
+            
 
 
     if overview:
@@ -172,7 +167,6 @@ def main(argv):
             if (None == serving_measurement or '' == serving_measurement):
                 print '--serving-measurement has not been supplied' 
             sys.exit(2)
-        #print food, " quantity: ", quantity, ", price: $", price, ", cost per meal: ", cost_per_meal(quantity, unit, price, serving_size, serving_measurement)
         print 'food cost for ' + food + ' at ' + usd(float(price)) + ' for ' + quantity + ' ' + unit + "... cost per meal: " +  usd(cost_per_meal(quantity, unit, price, serving_size, serving_measurement))
 
         sys.exit(0)
@@ -190,6 +184,15 @@ def main(argv):
         print 'storing updated food cost for ' + food + ' at ' + usd(float(price)) + ' for ' + quantity + ' ' + unit
         store_updated_food_cost(food, price, quantity, unit)
         sys.exit(0)
+
+def normalize_unit(unit):
+    '''Translate user input into recognized units for conversion'''
+    if unit in ("pounds", "lbs"):
+       return  "pounds"
+    if unit in ("kilograms", "kg"):
+       return "kilograms"
+    if unit in ("grams", "g"):
+       return "grams"
 
 
 
@@ -214,6 +217,8 @@ def help_man():
     print '--check yields the price per serving.  This helps with bulk price comparison.'
     print '--store updates the database of food prices so that calculations in --overview are accurate.  Run this after food shopping.  Include tax+shipping if applicable.'
     print ''
+
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])
