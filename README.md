@@ -81,6 +81,15 @@ figure out a way to reduce that cost.  I hope it's as helpful to you as it was
 to me.  If you create new conversion systems or API's to the DB, please submit
 a pull request!
 
+### WHY PYTHON?
+
+I'm not a python programmer!  If you look at my github history, you'll see I
+primarily program in C, Perl, or PHP.  I haven't done python in a while.
+Because of the REPL nature and, basically, syntax-free REPL environment, I
+started there...mostly because I really don't get Shell scripting!  When the
+project started evolving on its own, I took it on as a challenge BECAUSE I
+don't really use python too much.  It was fun!
+
 
 ## EXAMPLES:
 
