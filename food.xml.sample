@@ -1,0 +1,38 @@
+<food>
+    <costs>
+        <food name="oatmeal" price="3.99" quantity="680" unit="grams" />
+        <food name="egg" price="4.99" quantity="60" unit="servings" />
+        <food name="protein-powder" price="27.99" quantity="1.1" unit="pounds" />
+        <food name="green-beans" price="5.99" quantity="4" unit="pounds" />
+        <food name="tofu" price="3.79" quantity="28" unit="ounces" />
+        <food name="apple" price="4.99" quantity="13" unit="servings" />
+        <food name="yogurt" price="9.99" quantity="16" unit="servings" />
+        <food name="almonds" price="12.99" quantity="2.5" unit="pounds" />
+        <food name="applesauce" price="6.99" quantity="144" unit="ounces" />
+    </costs>
+    <meals>
+        <meal name="breakfast">
+            <food name="oatmeal" quantity="80" unit="grams" />
+            <food name="egg" quantity="2" unit="servings" />
+        </meal>
+        <meal name="lunch">
+            <food name="protein-powder" quantity="36" unit="grams" />
+            <food name="green-beans" quantity="85" unit="grams" />
+            <food name="egg" quantity="2" unit="servings" />
+            <food name="tofu" quantity="4.6" unit="ounces" />
+        </meal>
+        <meal name="snack1">
+            <food name="apple" quantity="1" unit="servings" />
+            <food name="yogurt" quantity="1" unit="servings" />
+            <food name="almonds" quantity="28.5" unit="grams" />
+        </meal>
+        <meal name="snack2">
+            <food name="applesauce" quantity="8" unit="ounces" />
+        </meal>
+        <meal name="dinner">
+            <food name="green-beans" quantity="85" unit="grams" />
+            <food name="egg" quantity="2" unit="servings" />
+            <food name="tofu" quantity="4.6" unit="ounces" />
+        </meal>
+    </meals>
+</food>
