@@ -197,6 +197,8 @@ def normalize_unit(unit):
        return "grams"
     if unit in ("ounces", "oz"):
        return "ounces"
+    if unit in ("servings", "serving", "n/a", "generic"):
+        return "servings"
 
 
 
